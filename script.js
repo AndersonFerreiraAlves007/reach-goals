@@ -56,7 +56,10 @@ function formatDate(date) {
 function renderPeriod(period) {
   document.getElementById('start-date').innerText = `Início: ${formatDate(period.start)}`
   document.getElementById('end-date').innerText = `Término:${formatDate(period.end)}`
-  document.getElementById('remaining').innerText = `${parseInt((calculateDays(period)))} dias`
+  document.getElementById('remaining').innerText = `${parseInt((calculateDays({
+    start: new Date(),
+    end: period.end
+  })))} dias`
 }
 
 function handleCreateMessage() {
