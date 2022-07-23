@@ -11,6 +11,28 @@ function getMessages() {
   return messagesString ? JSON.parse(messagesString) : []
 }
 
+/* const data = [
+  {
+    name: 'nofap',
+    perido: {
+      start: new Date(),
+      end: new Date()
+    },
+    messages: [
+      {
+        content: message,
+        type: type,
+        date: new Date()
+      },
+      {
+        content: message,
+        type: type,
+        date: new Date()
+      },
+    ]
+  }
+] */
+
 function getPeriod() {
   const messagePeriod = localStorage.getItem('period')
   if(messagePeriod) {
@@ -39,7 +61,7 @@ function clearListMessage(listMessagesElement) {
 
 function renderListMessages(listMessagesElement, messages) {
   clearListMessage(listMessagesElement)
-  messages.forEach(message => renderMessage(listMessagesElement, message))
+  messages.reverse().forEach(message => renderMessage(listMessagesElement, message))
 }
 
 function calculateDays(period) {
@@ -69,11 +91,32 @@ function handleCreateMessage() {
   const type = document.getElementById('type-message-input').value
   //
   const messages = getMessages()
-  messages.push({
-    content: message,
-    type: type,
-    date: new Date()
-  })
+  if(messages.length > 0) {
+    if(
+      new Date(messages[messages.length - 1].date).getDate() === new Date().getDate() && 
+      new Date(messages[messages.length - 1].date).getMonth() === new Date().getMonth() && 
+      new Date(messages[messages.length - 1].date).getFullYear() === new Date().getFullYear()
+    ) {
+      messages[messages.length - 1] = {
+        content: message,
+        type: type,
+        date: new Date()
+      }
+    } else {
+      messages.push({
+        content: message,
+        type: type,
+        date: new Date()
+      })
+    }
+  } else {
+    messages.push({
+      content: message,
+      type: type,
+      date: new Date()
+    })
+  }
+  
   persistMessages(messages)
   //
   renderListMessages(document.getElementById('list-messages'), getMessages())
