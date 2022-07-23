@@ -49,6 +49,8 @@ function getPeriod() {
   }
 }
 
+///////////////////LISTAGEM DE MENSAGENS//////////////////
+
 function renderMessage(listMessagesElement, message) {
   listMessagesElement.innerHTML += `
     <div>${message.content}</div>
@@ -63,6 +65,8 @@ function renderListMessages(listMessagesElement, messages) {
   clearListMessage(listMessagesElement)
   messages.reverse().forEach(message => renderMessage(listMessagesElement, message))
 }
+
+///////////////////LISTAGEM DE MENSAGENS//////////////////
 
 function calculateDays(period) {
   const timeStart = period.start.getTime()
