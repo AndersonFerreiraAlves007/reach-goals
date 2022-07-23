@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Contador</title>
+</head>
+
+<body>
+    <header>
+        <h1>Contador</h1>
+        <nav>
+            <ul>
+                <li><a href=""> Contador</a></li>
+                <li> <a href="">Mensagens</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <header>
+                <span id="start-date">Iniciao: 12/02/2022</span>
+                <span id="end-date">Término: 23/10/2022</span>
+                <button id="btn-counter-edit">editar</button>
+            </header>
+            <div id="remaining">
+                12 dias
+            </div>
+        </section>
+        <section >
+            <header>
+                <button id="btn-message-create">adicionar</button>
+            </header>
+            <div id="list-messages">
+                
+            </div>
+        </section>
+    </main>
+    <footer>
+        © Copyright Anderson and Marlisson
+    </footer>
+    <div id="dialog-edit-period">
+        <div class="content">
+            <form action="">
+                <input type="date" id="start-date-input">
+                <input type="date" id="end-date-input">
+            </form>
+            <div>
+                <button type="button" id="btn-cancel-edit-period">Cancelar</button>
+                <button type="button" id="btn-save-edit-period">Salvar</button>
+            </div>
+            
+        </div>
+    </div>
+    <div id="dialog-create-message">
+        <div class="content">
+            <form action="">
+                <select id="type-message-input">
+                    <option value="good">Bom</option>
+                    <option value="bad">Ruim</option>
+                </select>
+                <textarea id="message-input" cols="30" rows="10"></textarea>
+            </form>
+            <div>
+                <button type="button" id="btn-cancel-create-message">Cancelar</button>
+                <button type="button" id="btn-save-create-message">Salvar</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+
+</html>
