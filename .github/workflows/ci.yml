@@ -17,4 +17,7 @@ jobs:
           script: |
             cd ${{ secrets.PROJECT_PATH }}
             git pull
-            cp -R ${{ secrets.PROJECT_PATH }} /var/www/reachgoals.andersonferreiraalves.com
+            rm -r /var/www/reachgoals.andersonferreiraalves.com/*
+            cp -RT ${{ secrets.PROJECT_PATH }} /var/www/reachgoals.andersonferreiraalves.com
+
+            
