@@ -189,7 +189,7 @@ function showDialogEditPeriod() {
 }
 
 function clearFormCreateMessage() {
-  document.getElementById('message-input').value = ''
+  //document.getElementById('message-input').value = ''
   document.getElementById('type-message-input').value = 'good'
 }
 
